@@ -41,20 +41,34 @@ var die = new Die (6);
 //construct an object with property values of results sum and value of how many times that sum has been rolled.
 var probsSums = [];
 
-function getProbabilities(rolls){
-  var total = [];
-  console.log(total);
+function getProbabilities(){
+  var totals = [];
+  var die1 = new Die (3);
+  var die2 = new Die (1);
   for(var i = 0; i < 1000; i++){
-    var firstRoll = Math.ceil(Math.random() * 6);
-    var secondRoll = Math.ceil(Math.random() * 6);
+    var firstRoll = die1.rollDie();
+    var secondRoll = die2.rollDie();
     var sumOfRoll = firstRoll + secondRoll
-    total.push(sumOfRoll)
+    totals.push(sumOfRoll)
   };
+  //now itirate through total and if the number already exists, add to it, if not, create a new one.
+  //create a function that will iterate through the array and return a new array
+  var totalSums = totals.reduce(function(acc, number, i, arr){
+    if(acc[number]){
+      acc[number] += 1;
+    } else {
+      acc[number] = 1;
+    } return acc
+  }, [])
+//iterate through the array and return the values to a new object
+//new object will be the final return valye
+return totalSums;
 
-  console.log(total);
+
 
   //simulate two dice rolling 1000 times
   //return an array that shows the number of times the two dice added up
 };
 
-getProbabilities(1000);
+var results = getProbabilities();
+console.log(results);
