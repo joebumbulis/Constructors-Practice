@@ -38,22 +38,20 @@ var die = new Die (6);
 //* Create a function called getProbabilities (it does NOT live on the constructor) that will simulate rolling two dice 1000 times.
 //The function should return an array that shows the number of times the sum of the two die added up to 2, 3, 4, ... 12.
 
-//construct an object with property values of results sum and value of how many times that sum has been rolled. 
+//construct an object with property values of results sum and value of how many times that sum has been rolled.
 var probsSums = [];
 
 function getProbabilities(rolls){
   var total = [];
+  console.log(total);
+  for(var i = 0; i < 1000; i++){
+    var firstRoll = Math.ceil(Math.random() * 6);
+    var secondRoll = Math.ceil(Math.random() * 6);
+    var sumOfRoll = firstRoll + secondRoll
+    total.push(sumOfRoll)
+  };
 
-  var firstRoll = Math.ceil(Math.random() * 6);
-  var secondRoll = Math.ceil(Math.random() * 6);
-  var sumOfRoll = firstRoll + secondRoll
-
-  console.log(sumOfRoll);
-
-  n.forEach(function(item, i, arr){
-
-  })
-  //
+  console.log(total);
 
   //simulate two dice rolling 1000 times
   //return an array that shows the number of times the two dice added up
